@@ -1,4 +1,8 @@
 package com.poecat.account;
 
-interface AccountRepository {
+import java.util.List;
+
+public interface AccountRepository {
+
+    List<Account> getAllAccounts();
 }
