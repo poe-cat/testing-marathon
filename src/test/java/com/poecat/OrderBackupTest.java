@@ -25,6 +25,7 @@ public class OrderBackupTest {
         orderBackup.getWriter().append(" backed up.");
     }
 
+    @Tag("fries")
     @Test
     public void backupOrderWithOneMeal() throws IOException {
 
