@@ -1,4 +1,4 @@
-package com.poecat;
+package com.poecat.account;
 
 public class Account {
 
@@ -36,14 +36,15 @@ public class Account {
     }
 
     public String getEmail() {
-        return email;
+        return this.email;
     }
 
     public void setEmail(String email) {
 
-        if(email.matches("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\[A-Za-z]{2,6}$")) {
+        if (email.matches("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}$")) {
             this.email = email;
+        } else {
+            throw new IllegalArgumentException("Wrong email format");
         }
-        throw new IllegalArgumentException("Wrong email format");
     }
 }

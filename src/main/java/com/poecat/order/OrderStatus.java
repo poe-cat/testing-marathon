@@ -1,4 +1,4 @@
-package com.poecat;
+package com.poecat.order;
 
 public enum OrderStatus {
 

@@ -1,4 +1,4 @@
-package com.poecat;
+package com.poecat.exercise;
 
 import org.junit.jupiter.api.Test;
 

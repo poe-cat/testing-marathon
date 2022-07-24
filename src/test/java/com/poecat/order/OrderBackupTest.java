@@ -1,5 +1,6 @@
-package com.poecat;
+package com.poecat.order;
 
+import com.poecat.Meal;
 import org.junit.jupiter.api.*;
 
 import java.io.FileNotFoundException;

@@ -1,4 +1,4 @@
-package com.poecat;
+package com.poecat.exercise;
 
 import java.util.ArrayList;
 import java.util.List;

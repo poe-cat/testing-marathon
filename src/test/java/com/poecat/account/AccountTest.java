@@ -1,4 +1,4 @@
-package com.poecat;
+package com.poecat.account;
 
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Tag;
@@ -93,4 +93,16 @@ public class AccountTest {
         assertThrows(IllegalArgumentException.class, () -> account.setEmail("wrong email"));
     }
 
+    @Test
+    void validEmailShouldBeSet() {
+
+        //given
+        Account account = new Account();
+
+        //when
+        account.setEmail("username@domain.pl");
+
+        //then
+        assertThat(account.getEmail(), is("username@domain.pl"));
+    }
 }

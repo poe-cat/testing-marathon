@@ -1,4 +1,4 @@
-package com.poecat;
+package com.poecat.extensions;
 
 import org.junit.jupiter.api.extension.AfterEachCallback;
 import org.junit.jupiter.api.extension.BeforeEachCallback;

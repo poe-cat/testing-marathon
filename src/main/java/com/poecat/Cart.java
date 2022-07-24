@@ -1,5 +1,7 @@
 package com.poecat;
 
+import com.poecat.order.Order;
+
 import java.util.ArrayList;
 import java.util.List;
 

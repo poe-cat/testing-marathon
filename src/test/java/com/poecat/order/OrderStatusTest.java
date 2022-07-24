@@ -1,4 +1,4 @@
-package com.poecat;
+package com.poecat.order;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.EnumSource;

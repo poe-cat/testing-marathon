@@ -1,4 +1,4 @@
-package com.poecat;
+package com.poecat.extensions;
 
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.api.extension.TestExecutionExceptionHandler;

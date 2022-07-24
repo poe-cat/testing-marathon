@@ -1,4 +1,6 @@
-package com.poecat;
+package com.poecat.order;
+
+import com.poecat.Meal;
 
 import java.util.ArrayList;
 import java.util.List;
