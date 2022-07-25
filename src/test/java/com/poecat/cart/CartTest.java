@@ -1,5 +1,6 @@
-package com.poecat;
+package com.poecat.cart;
 
+import com.poecat.cart.Cart;
 import com.poecat.order.Order;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;

@@ -2,5 +2,5 @@ package com.poecat.order;
 
 public enum OrderStatus {
 
-    ORDERED, READY, DELIEVERED
+    ORDERED, READY, DELIEVERED, PREPARING, REJECTED
 }
