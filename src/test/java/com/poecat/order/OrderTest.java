@@ -1,6 +1,6 @@
 package com.poecat.order;
 
-import com.poecat.Meal;
+import com.poecat.meal.Meal;
 import com.poecat.extensions.BeforeAfterExtension;
 import org.hamcrest.MatcherAssert;
 import org.junit.jupiter.api.AfterEach;

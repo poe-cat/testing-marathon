@@ -240,7 +240,7 @@ public class CartServiceTest {
     @Test
     void deliveryShouldBeFree() {
         //given
-        Cart cart = new Cart();
+        Cart cart = mock(Cart.class);
         cart.addOrderToCart(new Order());
         cart.addOrderToCart(new Order());
         cart.addOrderToCart(new Order());
@@ -253,6 +253,4 @@ public class CartServiceTest {
         //then
         assertTrue(isDeliveryFree);
     }
-
-
 }

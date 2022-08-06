@@ -1,4 +1,4 @@
-package com.poecat;
+package com.poecat.meal;
 
 import com.poecat.extensions.IAExceptionIgnoreExtension;
 import com.poecat.order.Order;
@@ -27,7 +27,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.spy;
+
 
 public class MealTest {
 
@@ -46,6 +46,7 @@ public class MealTest {
         //then
         assertEquals(28, discountedPrice);
         assertThat(discountedPrice, equalTo(28));
+
     }
 
     @Test
@@ -58,10 +59,11 @@ public class MealTest {
         //then
         assertSame(meal1, meal2);
         assertThat(meal1, sameInstance(meal2));
+
     }
 
     @Test
-    void referencesToDifferentObjectShouldNotBeEqual() {
+    void referencesToDifferentObjectsShouldNotBeEqual() {
 
         //given
         Meal meal1 = new Meal(10);
@@ -70,6 +72,7 @@ public class MealTest {
         //then
         assertNotSame(meal1, meal2);
         assertThat(meal1, not(sameInstance(meal2)));
+
     }
 
     @Test
@@ -80,18 +83,21 @@ public class MealTest {
         Meal meal2 = new Meal(10, "Pizza");
 
         //then
-        assertEquals(meal1, meal2);
+        assertEquals(meal1, meal2, "Checking if two meals are equal");
+        assertThat(meal1, equalTo(meal2));
+
     }
 
     @Test
     void exceptionShouldBeThrownIfDiscountIsHigherThanThePrice() {
 
         //given
-        Meal meal = new Meal(8, "Spaghetti");
+        Meal meal = new Meal(8, "Soup");
 
         //when
         //then
         assertThrows(IllegalArgumentException.class, () -> meal.getDiscountedPrice(40));
+
     }
 
     @ParameterizedTest
@@ -107,12 +113,10 @@ public class MealTest {
         assertThat(price, greaterThanOrEqualTo(10));
     }
 
-
-    // metoda pomocnicza
     private static Stream<Arguments> createMealsWithNameAndPrice() {
         return Stream.of(
                 Arguments.of("Hamburger", 10),
-                Arguments.of("Cheesburger", 12)
+                Arguments.of("Cheeseburger", 12)
         );
     }
 
@@ -123,7 +127,6 @@ public class MealTest {
         assertThat(name, endsWith("cake"));
     }
 
-    // metoda pomocnicza
     private static Stream<String> createCakeNames() {
         List<String> cakeNames = Arrays.asList("Cheesecake", "Fruitcake", "Cupcake");
         return cakeNames.stream();
@@ -150,16 +153,19 @@ public class MealTest {
         Collection<DynamicTest> dynamicTests = new ArrayList<>();
 
         for(int i = 0; i < order.getMeals().size(); i++) {
+
             int price = order.getMeals().get(i).getPrice();
             int quantity = order.getMeals().get(i).getQuantity();
 
             Executable executable = () -> {
                 assertThat(calculatePrice(price, quantity), lessThan(67));
             };
+
             String name = "Test name: " + i;
             DynamicTest dynamicTest = DynamicTest.dynamicTest(name, executable);
             dynamicTests.add(dynamicTest);
         }
+
         return dynamicTests;
     }
 
@@ -171,6 +177,7 @@ public class MealTest {
 
         given(meal.getPrice()).willReturn(15);
         given(meal.getQuantity()).willReturn(3);
+
         given(meal.sumPrice()).willCallRealMethod();
 
         //when
@@ -178,6 +185,7 @@ public class MealTest {
 
         //then
         assertThat(result, equalTo(45));
+
     }
 
     @Test
@@ -195,10 +203,11 @@ public class MealTest {
         then(mealSpy).should().getPrice();
         then(mealSpy).should().getQuantity();
         assertThat(result, equalTo(45));
+
     }
 
-    //metoda pomocnicza
     private int calculatePrice(int price, int quantity) {
         return price * quantity;
     }
+
 }

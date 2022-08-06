@@ -1,4 +1,4 @@
-package com.poecat;
+package com.poecat.meal;
 
 import java.util.Objects;
 
@@ -66,5 +66,9 @@ public class Meal {
 
     int sumPrice() {
         return getPrice() * getQuantity();
+    }
+
+    public String getName() {
+        return this.name;
     }
 }
